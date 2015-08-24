@@ -19,10 +19,12 @@ class Pin < ActiveRecord::Base
     if File.exist?('/sys/class/gpio/export')
       exec_cmd("echo #{pin_pi} > /sys/class/gpio/export")
 
-      if value
-        exec_cmd("echo out > /sys/class/gpio/gpio#{pin_pi}/direction")
-      else
-        exec_cmd("echo in > /sys/class/gpio/gpio#{pin_pi}/direction")
+      if File.exist?("/sys/class/gpio/gpio#{pin_pi}/direction")
+        if value
+          exec_cmd("echo out > /sys/class/gpio/gpio#{pin_pi}/direction")
+        else
+          exec_cmd("echo in > /sys/class/gpio/gpio#{pin_pi}/direction")
+        end
       end
     end
   end
