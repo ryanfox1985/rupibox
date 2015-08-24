@@ -1,4 +1,4 @@
-FROM ruby:2.1.6
+FROM resin/rpi-raspbian:wheezy
 MAINTAINER ryanfox1985 <wolf.fox1985@gmail.com>
 
 # Use baseimage-docker's init system.
@@ -9,7 +9,7 @@ RUN apt-get -q update
 RUN apt-get -qy upgrade
 
 # Install packages
-RUN apt-get install -qy build-essential libpq-dev libmysqlclient-dev nodejs git-core
+RUN apt-get install -qy ruby build-essential nodejs git-core
 
 ENV APP_HOME /var/www
 RUN mkdir $APP_HOME
