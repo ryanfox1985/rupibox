@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: pins
+#
+#  created_at :datetime         not null
+#  id         :integer          not null, primary key
+#  name       :string
+#  pin_pi     :integer
+#  updated_at :datetime         not null
+#  value      :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pin_pi: 1
+  value: false
+
+two:
+  name: MyString
+  pin_pi: 1
+  value: false
