@@ -17,7 +17,7 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 
 #INSTALL RUBY
 RUN /usr/local/rvm/bin/rvm install 2.1.6
-RUN /usr/local/rvm/bin/rvm rvm use --default 2.1.6
+RUN /usr/local/rvm/bin/rvm use --default 2.1.6
 
 RUN gem install bundler
 
