@@ -9,7 +9,16 @@ RUN apt-get -q update
 RUN apt-get -qy upgrade
 
 # Install packages
-RUN apt-get install -qy ruby ruby-dev build-essential nodejs git-core
+RUN apt-get install -qy build-essential nodejs git-core curl
+
+# RVM
+RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+RUN curl -sSL https://get.rvm.io | bash -s stable
+
+#INSTALL RUBY
+RUN /usr/local/rvm/bin/rvm install 2.1.6
+RUN /usr/local/rvm/bin/rvm rvm use --default 2.1.6
+
 RUN gem install bundler
 
 ENV APP_HOME /var/www
