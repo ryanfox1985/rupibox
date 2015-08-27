@@ -9,3 +9,4 @@ web:
     SECRET_KEY_BASE: <%= rake secret %>
   volumes:
    - /sys:/sys
+   - .:/var/www

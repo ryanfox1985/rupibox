@@ -24,6 +24,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'annotate'
 
+gem 'bootstrap-sass', '~> 3.3.4'
+
+gem 'font-awesome-rails'
+gem 'animate-rails', '~> 1.0.8'
+gem 'formtastic-bootstrap'
+
 platforms :ruby do # Only linux
   gem 'puma'
 end

@@ -1,29 +1,14 @@
-<%= form_for(@pin) do |f| %>
-  <% if @pin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
+<%= semantic_form_for @pin do |f| %>
+  <%= f.semantic_errors %>
 
-      <ul>
-      <% @pin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= f.inputs do %>
+      <%= f.input :name %>
+      <%= f.input :pin_pi %>
+
+      <%= f.input :value %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :pin_pi %><br>
-    <%= f.number_field :pin_pi %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.check_box :value %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+      <%= f.action :submit, :as => :button, :button_html => {:class => 'btn btn-primary btn-update'} %>
+  <% end %>
 <% end %>
