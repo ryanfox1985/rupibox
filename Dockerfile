@@ -9,7 +9,7 @@ RUN apt-get -q update
 RUN apt-get -qy upgrade
 
 # Install packages
-RUN apt-get install -qy ruby build-essential nodejs git-core
+RUN apt-get install -qy ruby ruby-dev build-essential nodejs git-core
 
 ENV APP_HOME /var/www
 RUN mkdir $APP_HOME
