@@ -2,11 +2,14 @@ web:
   build: .
   command: ./start.sh
   ports:
-    - "3000:3000"
+    - 3000:3000
   environment:
     RAILS_ENV: production
     RAILS_SERVE_STATIC_FILES: true
     SECRET_KEY_BASE: <%= rake secret %>
   volumes:
-   - /sys:/sys
    - .:/var/www
+  cap_add:
+    - SYS_RAWIO
+  devices:
+    - /dev/mem:/dev/mem
