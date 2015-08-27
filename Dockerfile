@@ -10,6 +10,7 @@ RUN apt-get -qy upgrade
 
 # Install packages
 RUN apt-get install -qy ruby ruby-dev build-essential nodejs git-core
+RUN gem install bundler
 
 ENV APP_HOME /var/www
 RUN mkdir $APP_HOME
