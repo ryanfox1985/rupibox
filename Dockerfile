@@ -12,14 +12,11 @@ RUN apt-get -qy upgrade
 RUN apt-get install -qy build-essential nodejs git-core curl
 
 # RVM
-RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-RUN curl -sSL https://get.rvm.io | bash -s stable
-
-#INSTALL RUBY
-RUN /usr/local/rvm/bin/rvm install 2.1.6
-RUN /usr/local/rvm/bin/rvm use --default 2.1.6
-
-RUN gem install bundler
+RUN /bin/bash -l -c "curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
+RUN /bin/bash -l -c "curl -sSL https://get.rvm.io | bash -s stable"
+RUN /bin/bash -l -c "rvm install 2.1.6"
+RUN /bin/bash -l -c "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
 ENV APP_HOME /var/www
 RUN mkdir $APP_HOME
