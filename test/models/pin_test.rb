@@ -7,7 +7,7 @@
 #  name       :string
 #  pin_pi     :integer
 #  updated_at :datetime         not null
-#  value      :boolean
+#  value      :boolean          default(FALSE)
 #
 
 require 'test_helper'

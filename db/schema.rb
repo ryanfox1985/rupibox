@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20150824181326) do
   create_table "pins", force: :cascade do |t|
     t.string   "name"
     t.integer  "pin_pi"
-    t.boolean  "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "value",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
