@@ -11,5 +11,6 @@ web:
    - .:/var/www
   cap_add:
     - SYS_RAWIO
-  devices:
-    - /dev/mem:/dev/mem
+  privileged: true
+#  devices:
+#    - /dev/mem:/dev/mem
