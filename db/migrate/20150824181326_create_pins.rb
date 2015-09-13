@@ -3,7 +3,7 @@ class CreatePins < ActiveRecord::Migration
     create_table :pins do |t|
       t.string :name
       t.integer :pin_pi
-      t.boolean :value
+      t.boolean :value, default: false
 
       t.timestamps null: false
     end

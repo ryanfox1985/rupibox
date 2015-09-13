@@ -15,25 +15,33 @@ class Pin < ActiveRecord::Base
 
   private
 
-  def set_value
-    if File.exist?('/sys/class/gpio/export')
-      exec_cmd("echo #{pin_pi} > /sys/class/gpio/export")
+  def exec_cmd(cmd)
+    begin
+      puts "EXECUTING => #{cmd}"
+      exec cmd
+    rescue E => e
+      puts e
+    end
+  end
 
-      if File.exist?("/sys/class/gpio/gpio#{pin_pi}/direction")
-        if value
-          exec_cmd("echo out > /sys/class/gpio/gpio#{pin_pi}/direction")
-        else
-          exec_cmd("echo in > /sys/class/gpio/gpio#{pin_pi}/direction")
-        end
+  def up_device
+    unless File.exist?("/sys/class/gpio/gpio#{pin_pi}")
+      if File.exist?('/sys/class/gpio/export')
+        exec_cmd("echo #{pin_pi} > /sys/class/gpio/export")
       end
     end
   end
 
-  def exec_cmd(cmd)
-    begin
-      exec cmd
-    rescue E => e
-      puts e
+  def set_value
+    puts "Set value: pin#{pin_pi} = #{value};"
+    up_device
+
+    if File.exist?("/sys/class/gpio/gpio#{pin_pi}/direction")
+      if value
+        exec_cmd("echo out > /sys/class/gpio/gpio#{pin_pi}/direction")
+      else
+        exec_cmd("echo in > /sys/class/gpio/gpio#{pin_pi}/direction")
+      end
     end
   end
 end
