@@ -11,6 +11,9 @@ RUN apt-get -qy upgrade
 # Install packages
 RUN apt-get install -qy build-essential nodejs git-core curl
 
+RUN echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
+RUN gem install bundler --no-ri --no-rdoc
+
 ENV APP_HOME /var/www
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
