@@ -1,7 +1,6 @@
 #!/bin/bash
 
-/bin/bash -l -c "bundle install --without development test profile --deployment"
-/bin/bash -l -c "bundle exec rake db:create"
-/bin/bash -l -c "bundle exec rake assets:precompile db:migrate"
-/bin/bash -l -c "bundle exec rake db:seed"
-/bin/bash -l -c "bundle exec puma -C config/puma.rb"
+bundle install --without development test profile --deployment
+bundle exec rake db:create db:migrate db:seed
+bundle exec rake assets:precompile
+bundle exec puma -C config/puma.rb

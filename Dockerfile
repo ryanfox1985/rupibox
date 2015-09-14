@@ -1,4 +1,4 @@
-FROM ontouchstart/rpi-base
+FROM ontouchstart/rpi-ruby
 MAINTAINER ryanfox1985 <wolf.fox1985@gmail.com>
 
 # Use baseimage-docker's init system.
