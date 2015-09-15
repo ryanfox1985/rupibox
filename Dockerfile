@@ -9,7 +9,7 @@ RUN apt-get -q update
 RUN apt-get -qy upgrade
 
 # Install packages
-RUN apt-get install -qy build-essential nodejs git-core curl sqlite3
+RUN apt-get install -qy build-essential nodejs git-core curl sqlite3 libsqlite3-dev
 
 RUN echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
 RUN gem install bundler --no-ri --no-rdoc
