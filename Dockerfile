@@ -1,4 +1,4 @@
-FROM ontouchstart/rpi-ruby
+FROM hypriot/rpi-ruby
 MAINTAINER ryanfox1985 <wolf.fox1985@gmail.com>
 
 # Use baseimage-docker's init system.
@@ -9,7 +9,7 @@ RUN apt-get -q update
 RUN apt-get -qy upgrade
 
 # Install packages
-RUN apt-get install -qy build-essential nodejs git-core curl
+RUN apt-get install -qy build-essential nodejs git-core curl sqlite3
 
 RUN echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
 RUN gem install bundler --no-ri --no-rdoc
