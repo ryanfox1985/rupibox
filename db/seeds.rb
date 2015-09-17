@@ -6,18 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-pin1 = Pin.find_or_create_by(pin_pi: 17)
-pin1.attributes = {name: 'Plug 0', pin_pi: 17, value: false}
-pin1.save
+def create_pin(pin_pi, attributes = {})
+  pin = Pin.find_by(pin_pi: pin_pi)
+  if pin.nil?
+    pin = Pin.create(attributes)
+    puts "### Creating #{pin.inspect}"
+  end
 
-pin2 = Pin.find_or_create_by(pin_pi: 27)
-pin2.attributes = {name: 'Plug 1', pin_pi: 27, value: false}
-pin2.save
+  pin
+end
 
-pin3 = Pin.find_or_create_by(pin_pi: 22)
-pin3.attributes = {name: 'Plug 2', pin_pi: 22, value: false}
-pin3.save
-
-pin4 = Pin.find_or_create_by(pin_pi: 23)
-pin4.attributes = {name: 'Plug 3', pin_pi: 23, value: false}
-pin4.save
+create_pin(17, {name: 'Plug 0', pin_pi: 17, value: false})
+create_pin(27, {name: 'Plug 1', pin_pi: 27, value: false})
+create_pin(17, {name: 'Plug 2', pin_pi: 22, value: false})
+create_pin(17, {name: 'Plug 3', pin_pi: 23, value: false})

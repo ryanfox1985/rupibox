@@ -13,15 +13,15 @@
 class Pin < ActiveRecord::Base
   after_save :set_value
 
-  private
-
   def exec_cmd(cmd)
     begin
       puts "EXECUTING => #{cmd}"
-      exec cmd
+      return system(cmd)
     rescue E => e
       puts e
     end
+
+    false
   end
 
   def up_device
@@ -33,7 +33,7 @@ class Pin < ActiveRecord::Base
   end
 
   def set_value
-    puts "Set value: pin#{pin_pi} = #{value};"
+    puts "START => Set value: pin#{pin_pi} = #{value};"
     up_device
 
     if File.exist?("/sys/class/gpio/gpio#{pin_pi}/direction")
@@ -43,5 +43,7 @@ class Pin < ActiveRecord::Base
         exec_cmd("echo in > /sys/class/gpio/gpio#{pin_pi}/direction")
       end
     end
+
+    puts "END => Set value: pin#{pin_pi} = #{value};"
   end
 end
