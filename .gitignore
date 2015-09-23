@@ -12,6 +12,11 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .idea
+/angular/node_modules
+/angular/dist
+/angular/.tmp
+/angular/.sass-cache
+/angular/bower_components
 
 ## Environment normalisation:
 /.bundle
