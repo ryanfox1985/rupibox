@@ -1,0 +1,17 @@
+<div class="container" ng-controller="PinsCtrl">
+  <div class="row">
+    <div class="col-xs-4">Nombre</div>
+    <div class="col-xs-4">Pin pi</div>
+    <div class="col-xs-4">Value</div>
+  </div>
+
+  <div ng-repeat="pin in pins">
+    <div class="row">
+      <div class="col-xs-4">{{pin.name}}</div>
+      <div class="col-xs-4">{{pin.pin_pi}}</div>
+      <div class="col-xs-4">
+        <input type="checkbox" ng-model="pin.value" bootstrap-switch ng-change="changedValue(pin)"  />
+      </div>
+    </div>
+  </div>
+</div>
