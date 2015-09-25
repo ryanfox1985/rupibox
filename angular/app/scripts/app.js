@@ -16,7 +16,8 @@ var app = angular.module('angularApp', [
   'ngResource',
   'ngRoute',
   'ngSanitize',
-  'ngTouch'
+  'ngTouch',
+  'xeditable'
 ]);
 
 app.config(function ($routeProvider) {
@@ -48,6 +49,12 @@ app.factory("Pin", function ($resource) {
   );
 });
 
+app.run(['$rootScope', '$location', function($rootScope, $location){
+  var path = function() { return $location.path();};
+  $rootScope.$watch(path, function(newVal, oldVal){
+    $rootScope.activetab = newVal;
+  });
+}]);
 
 app.directive('bootstrapSwitch', [
   function() {
@@ -76,3 +83,7 @@ app.directive('bootstrapSwitch', [
     };
   }
 ]);
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});

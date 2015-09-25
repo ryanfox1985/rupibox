@@ -35,6 +35,7 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/bootstrap-switch/dist/js/bootstrap-switch.js',
+      'bower_components/angular-xeditable/dist/js/xeditable.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
