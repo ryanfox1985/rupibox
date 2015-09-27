@@ -38,7 +38,7 @@ app.config(function ($routeProvider) {
 });
 
 app.factory("Pin", function ($resource) {
-  return $resource("http://localhost:3000/pins/:id.json", {id: "@id"},
+  return $resource("/pins/:id.json", {id: "@id"},
     {
       'create': {method: 'POST'},
       'index': {method: 'GET', isArray: true},

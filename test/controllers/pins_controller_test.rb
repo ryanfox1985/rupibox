@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# PinsControllerTest class
 class PinsControllerTest < ActionController::TestCase
   setup do
     @pin = pins(:one)

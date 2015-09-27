@@ -22,7 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'yard'
 gem 'annotate'
+gem 'newrelic_rpm'
+gem 'rails-erd'
 
 gem 'bootstrap-sass', '~> 3.3.4'
 
@@ -52,5 +55,19 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'did_you_mean'
+
+  #profiling
+  gem 'bullet'
+  gem 'ruby-prof', platforms: :ruby
+
+  # Use debugger (incompatible with Rubymine)
+  # gem 'debugger'
+  gem 'rubocop'
+
+  gem 'simplecov'
+  gem 'coveralls'
+  gem 'codeclimate-test-reporter'
 end
 

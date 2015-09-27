@@ -18,7 +18,7 @@ if Rails.env.development?
                               'position_in_fixture'  => "before",
                               'position_in_factory'  => "before",
                               'show_indexes'         => "true",
-                              'show_foreign-keys'    => 'true',
+                              'show_foreign_keys'    => 'true',
                               'simple_indexes'       => "false",
                               'model_dir'            => "app/models",
                               'include_version'      => "false",
@@ -41,9 +41,11 @@ if Rails.env.development?
 
   Rake::Task['db:migrate'].enhance do
     Rake::Task['annotate'].invoke
+    Rake::Task['generate_erd'].invoke
   end
 
   Rake::Task['db:rollback'].enhance do
     Rake::Task['annotate'].invoke
+    Rake::Task['generate_erd'].invoke
   end
 end
