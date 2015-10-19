@@ -1,6 +1,5 @@
 web:
-  build: .
-  command: ./start.sh
+  image: ryanfox1985/rupibox
   ports:
     - 3000:3000
   environment:
@@ -12,5 +11,3 @@ web:
   cap_add:
     - SYS_RAWIO
   privileged: true
-#  devices:
-#    - /dev/mem:/dev/mem
