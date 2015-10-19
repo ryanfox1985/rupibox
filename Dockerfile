@@ -1,7 +1,7 @@
 FROM hypriot/rpi-alpine-scratch
 MAINTAINER ryanfox1985 <wolf.fox1985@gmail.com>
 
-ENV BUILD_PACKAGES curl-dev ruby-dev sqlite-libs build-base
+ENV BUILD_PACKAGES curl-dev ruby-dev sqlite sqlite-dev build-base
 ENV RUBY_PACKAGES ruby ruby-io-console ruby-bundler
 
 # Update and upgrade
@@ -24,4 +24,4 @@ WORKDIR $APP_HOME
 RUN rm -rf /var/cache/apk/*
 
 EXPOSE 3000
-CMD ["start.sh"]
+CMD ["./start.sh"]
