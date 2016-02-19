@@ -15,7 +15,7 @@ class Pin < ActiveRecord::Base
 
   def exec_cmd(cmd)
     begin
-      puts "EXECUTING => #{cmd}"
+      logger.debug "EXECUTING => #{cmd}"
       return system(cmd)
     rescue E => e
       puts e
@@ -33,7 +33,7 @@ class Pin < ActiveRecord::Base
   end
 
   def set_value
-    puts "START => Set value: pin#{pin_pi} = #{value};"
+    logger.debug "START => Set value: pin#{pin_pi} = #{value};"
     up_device
 
     if File.exist?("/sys/class/gpio/gpio#{pin_pi}/direction")
@@ -44,6 +44,6 @@ class Pin < ActiveRecord::Base
       end
     end
 
-    puts "END => Set value: pin#{pin_pi} = #{value};"
+    logger.debug "END => Set value: pin#{pin_pi} = #{value};"
   end
 end
